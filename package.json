@@ -1,0 +1,32 @@
+{
+  "name": "drhack2018-backend",
+  "version": "1.0.0",
+  "description": "The backend for my DRHack 2018 project.",
+  "main": "server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/monotron/DRHack2018-Backend.git"
+  },
+  "keywords": [
+    "drhack",
+    "digital",
+    "research",
+    "hack",
+    "backend",
+    "express",
+    "http"
+  ],
+  "author": "monotron",
+  "license": "GPL-2.0",
+  "bugs": {
+    "url": "https://github.com/monotron/DRHack2018-Backend/issues"
+  },
+  "homepage": "https://github.com/monotron/DRHack2018-Backend#readme",
+  "dependencies": {
+    "express": "^4.16.3",
+    "mongoose": "^5.0.16"
+  }
+}
