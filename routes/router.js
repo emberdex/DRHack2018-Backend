@@ -15,6 +15,9 @@ exports.getRankings = (req, res) => {
 }
 
 exports.getAll = (req, res) => {
+
+	res.header('Access-Control-Allow-Origin', '*');
+
 	(async function(req, res) {
 		let client;
 
@@ -39,6 +42,8 @@ exports.getAll = (req, res) => {
 }
 
 exports.search = (req, res) => {
+	res.header('Access-Control-Allow-Origin', '*');
+
 	(async function(req, res) {
 		let client;
 
