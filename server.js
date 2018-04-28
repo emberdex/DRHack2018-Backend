@@ -21,6 +21,7 @@ app.use(bp.json());
 app.get('/api/search/:countryName', router.search);
 app.get('/api/get_all', router.getAll);
 app.get('/api/get_rankings/:countryID/:fieldName', router.getRankings);
+app.get('/api/get_countries', router.getCountryNames);
 
 app.listen(config.express.port, () => {
 	console.log(`[Server-Main] API listening on TCP port ${config.express.port}.`);

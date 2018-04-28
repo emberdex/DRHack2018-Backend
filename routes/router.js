@@ -65,7 +65,39 @@ exports.search = (req, res) => {
 				}
 			}
 
-			res.status(200).json({status: "success", data: results});
+			if (results.length == 0) { res.status(404).json({status: "not-found"}); }
+			else { res.status(200).json({status: "success", data: results}); }
+
+			client.close();
+		} catch (ex) {
+			console.log(ex.stack);
+		}
+	})(req, res);
+}
+
+exports.getCountryNames = (req, res) => {
+	res.header('Access-Control-Allow-Origin', '*');
+
+	(async function() {
+		let client;
+
+		try {
+			client = await MongoClient.connect(config.mongodb.connectionString);
+
+			console.log(`[Router] connected to MongoDB server ${config.mongodb.connectionString}`);
+			console.log(`[Router] getting country names`);
+
+			const db = client.db('drhack2018');
+			const collection = db.collection('countries');
+
+			const result = await collection.find({ year: 2012 }, { fields: { state: 1, _id: 0 } }).toArray();
+
+			let countries = [];
+			for(var i = 0; i < result.length; i++) {
+				countries.push(result[i].state);
+			}
+
+			res.status(200).json({status: "success", data: countries});
 
 			client.close();
 		} catch (ex) {
